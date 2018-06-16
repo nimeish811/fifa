@@ -116,7 +116,7 @@ if(wallet!=""){
           success : function(data) {
 
             if(data==1){
-              window.location.href="index.bcml?wallet="+wallet;
+              window.location.href="point.bcml?wallet="+wallet;
             }else{
               window.location.href="fifa.bcml?wallet="+wallet;
             }

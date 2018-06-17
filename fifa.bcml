@@ -210,8 +210,8 @@
         });
 
           var len = team.length;
-          if(len > 8){
-            $("#msg_error").text('Please Select Only 8 Teams');
+          if(len != 8 ){
+            $("#msg_error").text('Please Select 8 Teams');
           }else{
 
   var options = {

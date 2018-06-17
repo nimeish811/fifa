@@ -257,7 +257,7 @@
 
     function onload(){
 
-       var url_data = "http://www.mankiinfotech.com/FIFA/admin_master/get_team_api/";
+       var url_data = "https://ypblocknews.com/fifa/admin_master/get_team_api/";
 
         $.ajax({
           type: 'GET',

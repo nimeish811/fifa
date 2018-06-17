@@ -104,7 +104,7 @@
 
 function submit_wallet(){
 
-       var url_data = "http://www.mankiinfotech.com/FIFA/admin_master/is_team_created/";
+       var url_data = "https://ypblocknews.com/fifa/admin_master/is_team_created/";
        var wallet = $("#wallet").val();
 if(wallet!=""){
         $.ajax({

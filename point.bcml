@@ -85,7 +85,7 @@
     <script type="text/javascript">
 function onload(){
 
-       var url_data = "http://www.mankiinfotech.com/FIFA/admin_master/get_point_list/";
+       var url_data = "https://ypblocknews.com/fifa/admin_master/get_point_list/";
        var url_string = window.location.href;
               var url = new URL(url_string);
               var wallet = url.searchParams.get("wallet");

@@ -235,7 +235,7 @@
               var url = new URL(url_string);
               var wallet = url.searchParams.get("wallet");
               var team_json = JSON.stringify(team); 
-              var url_data = "http://www.mankiinfotech.com/FIFA/admin_master/user_team_submit/";
+              var url_data = "https://ypblocknews.com/fifa/admin_master/user_team_submit/";
 
                  $.ajax({
                     type: 'POST',

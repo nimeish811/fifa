@@ -56,6 +56,8 @@
                   <div class="card__content">
                     <input type="text" class="form-control" id="wallet" placeholder="Wallet Id" >
                     <span id="msg_error" style="color:red"> </span>
+                    
+                    <input type="text" class="form-control" id="neck_name" placeholder="Neck Name" >
                   </div>
                   <br>
                      <input type="button" class="btn btn-primary" id="wallet" value="Submit" onclick="submit_wallet();">
@@ -106,19 +108,20 @@ function submit_wallet(){
 
        var url_data = "https://ypblocknews.com/fifa/admin_master/is_team_created/";
        var wallet = $("#wallet").val();
+       var neck_name =$("#neck_name").val();
 if(wallet!=""){
         $.ajax({
           type: 'POST',
           url: url_data,
           //contentType: 'application/json; charset=utf-8',
           //data: json,
-         data: {wallet:wallet},
+         data: {wallet:wallet,neck:neck_name},
           success : function(data) {
 
             if(data==1){
-              window.location.href="point.bcml?wallet="+wallet;
+              window.location.href="point.bcml?wallet="+wallet+"&neckname="+neck_name;
             }else{
-              window.location.href="fifa.bcml?wallet="+wallet;
+              window.location.href="fifa.bcml?wallet="+wallet+"&neckname="+neck_name;
             }
 
           }

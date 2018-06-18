@@ -34,6 +34,7 @@
       <link href="assets/custom.css" rel="stylesheet">
    </head>
    <body class="template-football" style="display: block;">
+     <bizapp-root>
       <div class="site-wrapper clearfix">
          <div class="site-overlay"></div>
          <!-- Header
@@ -151,6 +152,7 @@ if(wallet!=""){
               
 get_money();
 </script>
+  </bizapp-root>
    </body>
 </html>
 

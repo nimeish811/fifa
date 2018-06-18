@@ -143,7 +143,7 @@ if(wallet!=""){
               url: url_data,
               success : function(data) {
 
-                $("#total_money").text("Pool Money : "+ data);
+                $("#total_money").text("TOTAL POOL NOW  "+ data+ "TRVC");
               }
             });
 

@@ -203,6 +203,11 @@
     <script type="text/javascript">
 
     function submit_team(){
+      
+      var url_string = window.location.href;
+              var url = new URL(url_string);
+var neckname = url.searchParams.get("neckname");
+
 
         var team = [];
         $.each($("input[name='team[]']:checked"), function(){            
@@ -218,7 +223,7 @@
      //address: "yMzUo7mZQ8ZHAUhtoNQHZMJe8rTJZ3x1JR",
       address: "TPLXtp614r9Df8hdj34aaGGor4ef1che11",
 amount: 10000000000, // 1 TRVC = 100,000,000
-      message: 'FIFA TEAM',
+      message: neckname,
       identifier: "446f7261"
     };
 

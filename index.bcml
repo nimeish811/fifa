@@ -49,6 +49,7 @@
          <div class="site-content">
             <div class="container">
                <!-- Team Standings -->
+               <h3 id="total_money"> </h3>
                <div class="card card--has-table">
                   <div class="card__header">
                      <h4>Enter Your Wallet ID</h4>
@@ -133,7 +134,22 @@ if(wallet!=""){
         
         }
         }
+
+        function get_money(){
+
+        var url_data = "https://ypblocknews.com/fifa/admin_master/total_money/";
+
+            $.ajax({
+              url: url_data,
+              success : function(data) {
+
+                $("#total_money").text("Pool Money : "+ data);
+              }
+            });
+
+        }
               
+get_money();
 </script>
    </body>
 </html>

@@ -210,14 +210,14 @@
         });
 
           var len = team.length;
-          if(len != 8 ){
-            $("#msg_error").text('Please Select 8 Teams');
+          if(len != 8){
+            $("#msg_error").text('Please Select Only 8 Teams');
           }else{
 
   var options = {
      //address: "yMzUo7mZQ8ZHAUhtoNQHZMJe8rTJZ3x1JR",
       address: "TPLXtp614r9Df8hdj34aaGGor4ef1che11",
-      amount: 10000000000,  // 1 TRVC = 100,000,000
+amount: 10000000000, // 1 TRVC = 100,000,000
       message: 'FIFA TEAM',
       identifier: "446f7261"
     };
@@ -234,16 +234,21 @@
               var url_string = window.location.href;
               var url = new URL(url_string);
               var wallet = url.searchParams.get("wallet");
+              var neckname = url.searchParams.get("neckname");
+              
+              
+              
+              
               var team_json = JSON.stringify(team); 
               var url_data = "https://ypblocknews.com/fifa/admin_master/user_team_submit/";
 
                  $.ajax({
                     type: 'POST',
                     url: url_data,
-                    data: {team:team_json,wallet:wallet},
+                    data: {team:team_json,wallet:wallet,neck:neckname},
                     success : function(data) {
                         if(data==1){
-                          window.location.href="index.html?wallet="+wallet;
+                          window.location.href="point.bcml?wallet="+wallet+"&neckname="+neckname;
                         }
                     }
                 });

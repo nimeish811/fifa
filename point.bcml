@@ -89,13 +89,14 @@ function onload(){
        var url_string = window.location.href;
               var url = new URL(url_string);
               var wallet = url.searchParams.get("wallet");
+              var neckname = url.searchParams.get("neckname");
 
         $.ajax({
           type: 'POST',
           url: url_data,
           //contentType: 'application/json; charset=utf-8',
           //data: json,
-         data: {wallet:wallet},
+         data: {wallet:wallet,neck:neckname},
           success : function(data) {
               var team = data.point_list;
 

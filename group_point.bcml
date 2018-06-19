@@ -32,20 +32,6 @@
       <link href="assets/style-football.css" rel="stylesheet">
       <!-- Custom CSS-->
       <link href="assets/custom.css" rel="stylesheet">
-      <style>
-      .button {
-   
-    background: #f92552 none repeat scroll 0 0;
-    border-radius: 5px;
-
-    font-weight: bold;
-    height: 54px;
-    line-height: 54px;
-    padding: 10px 30px;
-    text-align: center;
-}
-</style>
-
    </head>
    <body class="template-football" style="display: block;">
      <bizapp-root>
@@ -64,17 +50,23 @@
          <div class="site-content">
             <div class="container">
                <!-- Team Standings -->
-               <h5 id="total_money">Guess !! Who will become the World Cup champion 2018 <br> 猜！谁将会是2018世界杯冠军</h5>
-               <br><br>
                <div class="card card--has-table">
-                  <div class="card__header">
-                     <h4>Select Your Jackpot</h4>
-                  </div>
+                  
                   <div class="card__content">
-                    <div style="text-align:center;">
-                    <a href="single.bcml" class="button" > Champion jackpot </a> <br> <br>
-                    <a href="group.bcml" class="button" >  Group jackpot </a> <br> <br>
-                    <a href="leader.bcml" class="button" > Leaderborad</a> <br> <br>
+                     <div class="table-responsive">
+                        <table class="table table-hover table-standings table-standings--full table-standings--full-football">
+                           <thead>
+                              <tr>
+                                 <th class="team-standings__pos">NO</th>
+                                 <th class="team-standings__team">Team</th>
+                                 <th class="team-standings__win">Neckname</th>
+                                 <th class="team-standings__lose">Points</th>
+                              </tr>
+                           </thead>
+                           <tbody id="tbody">
+                           </tbody>
+                        </table>
+                     </div>
                   </div>
                </div>
                <!-- Team Standings / End --><!-- Terms Glossary -->               <!-- Terms Glossary / End -->
@@ -87,6 +79,68 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script type="text/javascript">
+function onload(){
+
+       var url_data = "https://ypblocknews.com/fifa/admin_master/get_group_point_list/";
+       var url_string = window.location.href;
+              var url = new URL(url_string);
+              var wallet = url.searchParams.get("wallet");
+              var neckname = url.searchParams.get("neckname");
+             var necknamearr =  neckname.split("?");
+             var neckname = necknamearr[0];
+        $.ajax({
+          type: 'POST',
+          url: url_data,
+          //contentType: 'application/json; charset=utf-8',
+          //data: json,
+         data: {wallet:wallet,neck:neckname},
+          success : function(data) {
+              var team = data.point_list;
+
+               var html_review = "";
+               var ctn=1;
+          
+               
+              $.each( team, function( key, value ) {
+             
+                        var name  = value.team_name;
+                        var flag = value.flag;
+                        var neckname = value.neck;
+                        var point = value.point;
+                       
+
+                             html_review += '<tr>'+
+                                 '<td class="team-standings__pos">'+ctn+'</td>'+
+                                 '<td class="team-standings__team">'+
+                                    '<div class="team-meta">'+
+                                       '<figure class="team-meta__logo"><img src="'+flag+'" alt=""></figure>'+
+                                       '<div class="team-meta__info">'+
+                                          '<h6 class="team-meta__name">'+name+'</h6>'+
+                                          
+                                       '</div>'+
+                                    '</div>'+
+                                 '</td>'+
+                                 '<td class="team-standings__win">'+neckname+'</td>'+
+                                 '<td class="team-standings__win">'+point+'</td>'+
+                                
+                              '</tr>';
+
+                        $("#tbody").html(html_review);
+                        
+                       
+                         
+                        ctn++;
+              });
+            //  total = round1_total+round2_total+round3_total+round4_total+round5_total;
+              
+             // $("#total").text(total);
+              
+
+
+              }
+            });
+      }
+onload();
 </script>
  </bizapp-root>
    </body>

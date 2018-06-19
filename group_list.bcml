@@ -34,15 +34,15 @@
       <link href="assets/custom.css" rel="stylesheet">
       <style>
       .button {
-   
-    background: #f92552 none repeat scroll 0 0;
+    background: #F92552 none repeat scroll 0 0;
     border-radius: 5px;
-
+   // color: black;
+    display: block;
     font-weight: bold;
     height: 54px;
-    line-height: 54px;
-    padding: 10px 30px;
+    margin-left: 80px;
     text-align: center;
+    width: 137px;
 }
 </style>
 
@@ -64,18 +64,20 @@
          <div class="site-content">
             <div class="container">
                <!-- Team Standings -->
-               <h5 id="total_money">Guess !! Who will become the World Cup champion 2018 <br> 猜！谁将会是2018世界杯冠军</h5>
-               <br><br>
+               <h3 id="total_money"> </h3>
                <div class="card card--has-table">
                   <div class="card__header">
-                     <h4>Select Your Jackpot</h4>
+                     <h4>Select Your Group</h4>
                   </div>
-                  <div class="card__content">
-                    <div style="text-align:center;">
-                    <a href="single.bcml" class="button" > Champion jackpot </a> <br> <br>
-                    <a href="group.bcml" class="button" >  Group jackpot </a> <br> <br>
-                    <a href="leader.bcml" class="button" > Leaderborad</a> <br> <br>
-                  </div>
+                  <div class="card__content" id="ahtml">                   
+                   <!--  <a href="group_team.bcml?group=A" class="btn-social-counter btn-social-counter--instagram" > Group A </a> 
+                    <a href="group_team.bcml?group=B" class="btn-social-counter btn-social-counter--instagram" > Group B </a> 
+                    <a href="group_team.bcml?group=C" class="btn-social-counter btn-social-counter--instagram" > Group C </a> 
+                    <a href="group_team.bcml?group=D" class="btn-social-counter btn-social-counter--instagram" > Group D </a>
+                    <a href="group_team.bcml?group=E" class="btn-social-counter btn-social-counter--instagram" > Group E </a> 
+                    <a href="group_team.bcml?group=F" class="btn-social-counter btn-social-counter--instagram" > Group F </a>
+                    <a href="group_team.bcml?group=G" class="btn-social-counter btn-social-counter--instagram" > Group G </a> 
+                    <a href="group_team.bcml?group=H" class="btn-social-counter btn-social-counter--instagram" > Group H </a> -->
                </div>
                <!-- Team Standings / End --><!-- Terms Glossary -->               <!-- Terms Glossary / End -->
             </div>
@@ -85,8 +87,38 @@
       <!-- Footer / End --><!-- Javascript Files
          ================================================== --><!-- Core JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+   var url_string = window.location.href;
+              var url = new URL(url_string);
+var neckname = url.searchParams.get("neckname");
+var wallet = url.searchParams.get("wallet");
+var ahtml = "";
+var grp = "";
+    for (var i = 1; i <= 8; i++) {
+      if(i==1){
+        grp = "A";
+      }else if(i==2){
+        grp = "B";
+      }else if(i==3){
+        grp = "C";
+      }else if(i==4){
+        grp = "D";
+      }else if(i==5){
+        grp = "E";
+      }else if(i==6){
+        grp = "F";
+      }else if(i==7){
+        grp = "G";
+      }else if(i==8){
+        grp = "H";
+      }
+      ahtml += "<a href='group_team.bcml?group="+grp+"&wallet="+wallet+"&neckname="+neckname+"' class='btn-social-counter btn-social-counter--instagram' > Group "+grp+"</a>"; 
 
-    <script type="text/javascript">
+    };
+    $("#ahtml").html(ahtml);
+
+
+
 </script>
  </bizapp-root>
    </body>

@@ -32,8 +32,24 @@
       <link href="assets/style-football.css" rel="stylesheet">
       <!-- Custom CSS-->
       <link href="assets/custom.css" rel="stylesheet">
+      <style>
+      .button {
+    background: #F92552 none repeat scroll 0 0;
+    border-radius: 5px;
+   // color: black;
+    display: block;
+    font-weight: bold;
+    height: 54px;
+    margin-left: 80px;
+    text-align: center;
+    width: 137px;
+    line-height: 54px;
+}
+</style>
+
    </head>
    <body class="template-football" style="display: block;">
+     <bizapp-root>
       <div class="site-wrapper clearfix">
          <div class="site-overlay"></div>
          <!-- Header
@@ -49,32 +65,59 @@
          <div class="site-content">
             <div class="container">
                <!-- Team Standings -->
+               <h3 id="total_money"> </h3>
                <div class="card card--has-table">
                   <div class="card__header">
-                     <h4>You Team Point Table</h4>  Total Points: <h6 id="total"> <h3>
+                     <h4>Champion Jackpot</h4>
                   </div>
                   <div class="card__content">
-                     <div class="table-responsive">
-                        <table class="table table-hover table-standings table-standings--full table-standings--full-football">
-                           <thead>
+                    <div class="widget-game-result__section">
+                      <div class="widget-game-result__table-stats">
+                        <div class="table-responsive">
+                          <table class="table table__cell-center table-thead-color">
+                            <thead>
                               <tr>
-                                 <th class="team-standings__pos">NO</th>
-                                 <th class="team-standings__team">Teams</th>
-                                 <th class="team-standings__win">Round1 Points</th>
-                                 <th class="team-standings__lose">Round2 Points</th>
-                                 <th class="team-standings__ties">Round3 Points</th>
-                                 <th class="team-standings__pct">Round4 Points</th>
-                                 <th class="team-standings__home">Round5 Points</th>
-                              </tr>
-                           </thead>
-                           <tbody id="tbody">
-                           </tbody>
+                                  <th>Nickname</th>
+                                  <th>Point</th>
+                                </tr>
+                              </thead>
+                            <tbody id="tbody">
+
+                            </tbody>
                         </table>
-                     </div>
+                      </div>
+                    </div>
                   </div>
                </div>
                <!-- Team Standings / End --><!-- Terms Glossary -->               <!-- Terms Glossary / End -->
             </div>
+
+            <div class="card card--has-table">
+                  <div class="card__header">
+                     <h4>Group Jackpot</h4>
+                  </div>
+                  <div class="card__content">
+                    <div class="widget-game-result__section">
+                      <div class="widget-game-result__table-stats">
+                        <div class="table-responsive">
+                          <table class="table table__cell-center table-thead-color">
+                            <thead>
+                              <tr>
+                                  <th>Group Name </th>
+                                  <th>Team Name</th>
+                                </tr>
+                              </thead>
+                            <tbody id="tbody1">
+
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+               </div>
+               <!-- Team Standings / End --><!-- Terms Glossary -->               <!-- Terms Glossary / End -->
+            </div>
+
          </div>
          <!-- Content / End -->
       </div>
@@ -83,82 +126,75 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script type="text/javascript">
-function onload(){
 
-       var url_data = "https://ypblocknews.com/fifa/admin_master/get_point_list/";
-       var url_string = window.location.href;
-              var url = new URL(url_string);
-              var wallet = url.searchParams.get("wallet");
-              var neckname = url.searchParams.get("neckname");
+    function onload(){
 
+       var url_data = "https://ypblocknews.com/fifa/admin_master/get_champion_leader/";
+       
         $.ajax({
-          type: 'POST',
+         // type: 'POST',
           url: url_data,
-          //contentType: 'application/json; charset=utf-8',
-          //data: json,
-         data: {wallet:wallet,neck:neckname},
           success : function(data) {
               var team = data.point_list;
 
                var html_review = "";
                var ctn=1;
-               var total = 0;
-               var round1_total = 0;
-                var round2_total = 0;
-                 var round3_total = 0;
-                  var round4_total = 0;
-                   var round5_total = 0;
-               
               $.each( team, function( key, value ) {
              
-                        var name  = value.team_name;
-                        var flag = value.flag;
-                        var round1 = value.round1;
-                        var round2 = value.round2;
-                        var round3 = value.round3;
-                        var round4 = value.round4;
-                        var round5 = value.round5;
-
+                       
                              html_review += '<tr>'+
-                                 '<td class="team-standings__pos">'+ctn+'</td>'+
-                                 '<td class="team-standings__team">'+
-                                    '<div class="team-meta">'+
-                                       '<figure class="team-meta__logo"><img src="'+flag+'" alt=""></figure>'+
-                                       '<div class="team-meta__info">'+
-                                          '<h6 class="team-meta__name">'+name+'</h6>'+
-                                          
-                                       '</div>'+
-                                    '</div>'+
-                                 '</td>'+
-                                 '<td class="team-standings__win">'+round1+'</td>'+
-                                 '<td class="team-standings__win">'+round2+'</td>'+
-                                 '<td class="team-standings__win">'+round3+'</td>'+
-                                 '<td class="team-standings__win">'+round4+'</td>'+
-                                 '<td class="team-standings__win">'+round5+'</td>'+
+                                 '<td class="team-standings__win">'+value.neck+'</td>'+
+                                 '<td class="team-standings__win">'+value.total+'</td>'+
+                            
                               '</tr>';
 
                         $("#tbody").html(html_review);
                         
-                         round1_total += Number(round1);
-                         round2_total += Number(round2);
-                         round3_total += Number(round3);
-                         round4_total += Number(round4);
-                         round5_total += Number(round5);
-                         
+                        
                          
                         ctn++;
               });
-              total = round1_total+round2_total+round3_total+round4_total+round5_total;
               
-              $("#total").text(total);
-              
+              }
+            });
+      
 
 
+      var url_data = "https://ypblocknews.com/fifa/admin_master/get_group_leader/";
+       
+        $.ajax({
+         // type: 'POST',
+          url: url_data,
+          success : function(data) {
+              var team = data.point_list;
+
+               var html_review = "";
+               var ctn=1;
+              $.each( team, function( key, value ) {
+             
+                       
+                             html_review += '<tr>'+
+                                 '<td class="team-standings__win"> Group : '+value.group_name+'</td>'+
+                                 '<td class="team-standings__win">'+value.team_name+'</td>'+
+                            
+                              '</tr>';
+
+                        $("#tbody1").html(html_review);
+                        
+                        
+                         
+                        ctn++;
+              });
+              
               }
             });
       }
+
 onload();
 </script>
+
+</script>
+ </bizapp-root>
    </body>
 </html>
 

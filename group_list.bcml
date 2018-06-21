@@ -48,7 +48,7 @@
     width: 137px;
 }
 </style>
-  <script src="https://cdn.bizstore.io/bizapp-0.0.2.min.js"></script>
+  <script src="https://cdn.bizstore.io/bizapp-0.0.3.min.js"></script>
    </head>
    <body class="template-football" style="display: block;">
      <bizapp-root>

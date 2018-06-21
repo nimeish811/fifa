@@ -6,6 +6,9 @@
          ================================================== -->
       <title>American Football &amp; Sports News HTML Template - Full Standings</title>
       <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="HandheldFriendly" content="true">
+  
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="description" content="Sports Club, League and News HTML Template">
       <meta name="author" content="Dan Fisher">

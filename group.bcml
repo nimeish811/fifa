@@ -34,6 +34,7 @@
       <link href="assets/style-football.css" rel="stylesheet">
       <!-- Custom CSS-->
       <link href="assets/custom.css" rel="stylesheet">
+        <script src="https://cdn.bizstore.io/bizapp-0.0.2.min.js"></script>
    </head>
    <body class="template-football" style="display: block;">
      <bizapp-root>

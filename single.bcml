@@ -34,6 +34,7 @@
       <link href="assets/style-football.css" rel="stylesheet">
       <!-- Custom CSS-->
       <link href="assets/custom.css" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://cdn.bizstore.io/bizapp-0.0.3.min.js"></script>
    </head>
    <body class="template-football" style="display: block;">
@@ -107,7 +108,6 @@ Nickname 昵称 -->
       </div>
       <!-- Footer / End --><!-- Javascript Files
          ================================================== --><!-- Core JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script type="text/javascript">
 

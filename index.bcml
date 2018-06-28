@@ -75,7 +75,7 @@
                   <div class="card__content">
                     <div style="text-align:center;">
                     <a href="single.bcml" class="button" > Champion jackpot </a> <br> <br>
-                    <a href="group.bcml" class="button" >  Group jackpot </a> <br> <br>
+                    <!-- <a href="group.bcml" class="button" >  Group jackpot </a> <br> <br>-->
                     <a href="leader.bcml" class="button" > Leaderborad</a> <br> <br>
                   </div>
                </div>

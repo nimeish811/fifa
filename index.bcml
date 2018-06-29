@@ -74,9 +74,9 @@
                   </div>
                   <div class="card__content">
                     <div style="text-align:center;">
-                    <a href="single.bcml" class="button" > Champion jackpot </a> <br> <br>
+                    <a href="single.bcml" class="button" id="group_btn" > Champion jackpot </a> <br> <br>
                     <!-- <a href="group.bcml" class="button" >  Group jackpot </a> <br> <br>-->
-                    <a href="leader.bcml" class="button" > Leaderborad</a> <br> <br>
+                    <a href="leader.bcml" class="button" "> Leaderborad</a> <br> <br>
                   </div>
                </div>
                <!-- Team Standings / End --><!-- Terms Glossary -->               <!-- Terms Glossary / End -->
@@ -89,6 +89,24 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script type="text/javascript">
+    
+    function get_time(){
+
+        var url_data = "https://ypblocknews.com/fifa/admin_master/date_time_api/";
+
+            $.ajax({
+              url: url_data,
+              success : function(data) {
+                  if(data==1){
+                  $('#group_btn').attr('style','display:none');
+                  }
+                
+              }
+            });
+
+        }
+              
+get_time();
 </script>
  </bizapp-root>
    </body>

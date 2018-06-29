@@ -97,7 +97,7 @@
             $.ajax({
               url: url_data,
               success : function(data) {
-                  if(data==1){
+                  if(data==0){
                   $('#group_btn').attr('style','display:none');
                   }
                 
